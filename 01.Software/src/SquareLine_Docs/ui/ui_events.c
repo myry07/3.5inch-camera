@@ -5,6 +5,11 @@
 
 #include "ui.h"
 
+void openCamera(lv_event_t * e)
+{
+	// Your code here
+}
+
 void tunrOnLED(lv_event_t * e)
 {
 	// Your code here
@@ -16,6 +21,11 @@ void turnOffLED(lv_event_t * e)
 }
 
 void change_clolor(lv_event_t * e)
+{
+	// Your code here
+}
+
+void closeCamera(lv_event_t * e)
 {
 	// Your code here
 }

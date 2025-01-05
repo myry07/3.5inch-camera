@@ -423,6 +423,72 @@
                   }
                 ],
                 "InheritedType": 4
+              },
+              {
+                "disabled": false,
+                "nid": 1000272,
+                "strtype": "_event/EventHandler",
+                "strval": "RELEASED",
+                "childs": [
+                  {
+                    "nid": 1000273,
+                    "strtype": "_event/name",
+                    "strval": "Event5",
+                    "InheritedType": 10
+                  },
+                  {
+                    "nid": 1000274,
+                    "strtype": "_event/condition_C",
+                    "strval": "",
+                    "InheritedType": 10
+                  },
+                  {
+                    "nid": 1000275,
+                    "strtype": "_event/condition_P",
+                    "strval": "",
+                    "InheritedType": 10
+                  },
+                  {
+                    "nid": 1000276,
+                    "flags": 1048576,
+                    "strtype": "_event/action",
+                    "strval": "CALL FUNCTION",
+                    "childs": [
+                      {
+                        "nid": 1000277,
+                        "strtype": "CALL FUNCTION/Name",
+                        "strval": "CALL FUNCTION",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000278,
+                        "strtype": "CALL FUNCTION/Call",
+                        "strval": "<{Function_name}>( event_struct )",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000279,
+                        "strtype": "CALL FUNCTION/CallC",
+                        "strval": "<{Function_name}>( e );",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000280,
+                        "strtype": "CALL FUNCTION/Function_name",
+                        "strval": "openCamera",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000281,
+                        "strtype": "CALL FUNCTION/Dont_export_function",
+                        "strval": "False",
+                        "InheritedType": 2
+                      }
+                    ],
+                    "InheritedType": 10
+                  }
+                ],
+                "InheritedType": 4
               }
             ],
             "saved_objtypeKey": "BUTTON"
@@ -1285,7 +1351,6 @@
                   },
                   {
                     "nid": 1000237,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "CALL FUNCTION",
                     "childs": [
@@ -1780,7 +1845,6 @@
               {
                 "disabled": false,
                 "nid": 1000233,
-                "flags": 1048576,
                 "strtype": "_event/EventHandler",
                 "strval": "RELEASED",
                 "childs": [
@@ -1803,46 +1867,8 @@
                     "InheritedType": 10
                   },
                   {
-                    "nid": 1000237,
-                    "flags": 1048576,
-                    "strtype": "_event/action",
-                    "strval": "CALL FUNCTION",
-                    "childs": [
-                      {
-                        "nid": 1000238,
-                        "strtype": "CALL FUNCTION/Name",
-                        "strval": "CALL FUNCTION",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": 1000239,
-                        "strtype": "CALL FUNCTION/Call",
-                        "strval": "<{Function_name}>( event_struct )",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": 1000240,
-                        "strtype": "CALL FUNCTION/CallC",
-                        "strval": "<{Function_name}>( e );",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": 1000241,
-                        "strtype": "CALL FUNCTION/Function_name",
-                        "strval": "turnOffLED",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": 1000242,
-                        "strtype": "CALL FUNCTION/Dont_export_function",
-                        "strval": "False",
-                        "InheritedType": 2
-                      }
-                    ],
-                    "InheritedType": 10
-                  },
-                  {
                     "nid": 1000259,
+                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "DELETE SCREEN",
                     "childs": [
@@ -1875,6 +1901,7 @@
                   },
                   {
                     "nid": 1000264,
+                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "CHANGE SCREEN",
                     "childs": [
@@ -1918,6 +1945,84 @@
                         "nid": 1000271,
                         "strtype": "CHANGE SCREEN/Delay",
                         "InheritedType": 6
+                      }
+                    ],
+                    "InheritedType": 10
+                  },
+                  {
+                    "nid": 1000292,
+                    "flags": 1048576,
+                    "strtype": "_event/action",
+                    "strval": "CALL FUNCTION",
+                    "childs": [
+                      {
+                        "nid": 1000293,
+                        "strtype": "CALL FUNCTION/Name",
+                        "strval": "CALL FUNCTION",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000294,
+                        "strtype": "CALL FUNCTION/Call",
+                        "strval": "<{Function_name}>( event_struct )",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000295,
+                        "strtype": "CALL FUNCTION/CallC",
+                        "strval": "<{Function_name}>( e );",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000296,
+                        "strtype": "CALL FUNCTION/Function_name",
+                        "strval": "closeCamera",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000297,
+                        "strtype": "CALL FUNCTION/Dont_export_function",
+                        "strval": "False",
+                        "InheritedType": 2
+                      }
+                    ],
+                    "InheritedType": 10
+                  },
+                  {
+                    "nid": 1000298,
+                    "flags": 1048576,
+                    "strtype": "_event/action",
+                    "strval": "CALL FUNCTION",
+                    "childs": [
+                      {
+                        "nid": 1000299,
+                        "strtype": "CALL FUNCTION/Name",
+                        "strval": "CALL FUNCTION",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000300,
+                        "strtype": "CALL FUNCTION/Call",
+                        "strval": "<{Function_name}>( event_struct )",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000301,
+                        "strtype": "CALL FUNCTION/CallC",
+                        "strval": "<{Function_name}>( e );",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000302,
+                        "strtype": "CALL FUNCTION/Function_name",
+                        "strval": "turnOffLED",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1000303,
+                        "strtype": "CALL FUNCTION/Dont_export_function",
+                        "strval": "False",
+                        "InheritedType": 2
                       }
                     ],
                     "InheritedType": 10
@@ -2082,7 +2187,7 @@
     "drive_fatfs_path": "",
     "naming": "Name",
     "naming_force_lowercase": false,
-    "nidcnt": 1000272,
+    "nidcnt": 1000304,
     "BitDepth": 16,
     "Name": "camera"
   }
