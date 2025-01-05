@@ -95,6 +95,12 @@ void showingImage() {
 
 bool tft_output(int16_t x, int16_t y, uint16_t w, uint16_t h, uint16_t* bitmap) {
   if (y >= tft.height()) return 0;
+
+  // 计算旋转后的坐标
+  // int16_t rotatedX = tft.width() - x - w;  // 水平翻转
+  // int16_t rotatedY = tft.height() - y - h; // 垂直翻转
+
+  // 绘制旋转后的图像
   tft.pushImage(x, y, w, h, bitmap);
   return 1;
 }

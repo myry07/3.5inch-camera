@@ -5,10 +5,7 @@
 
 #include "ui.h"
 
-void flash(lv_event_t* e) {
-  if (digitalRead(4) == 0) {
-    digitalWrite(4, 1);
-  } else {
-    digitalWrite(4, 0);
-  }
+void flash(lv_event_t * e)
+{
+	// Your code here
 }
