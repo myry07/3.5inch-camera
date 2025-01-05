@@ -100,11 +100,11 @@ void displayInit() {
 }
 
 void setup() {
-  // put your setup code here, to run once:
-
+  Serial.begin(115200);
+  displayInit();
+  cameraInit();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  showingImage();
 }
