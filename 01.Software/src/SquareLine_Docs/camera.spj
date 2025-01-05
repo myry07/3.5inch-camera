@@ -316,7 +316,6 @@
               {
                 "disabled": false,
                 "nid": 1000206,
-                "flags": 1048576,
                 "strtype": "_event/EventHandler",
                 "strval": "RELEASED",
                 "childs": [
@@ -373,7 +372,6 @@
                   },
                   {
                     "nid": 1000215,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "CHANGE SCREEN",
                     "childs": [
@@ -410,7 +408,7 @@
                       {
                         "nid": 1000221,
                         "strtype": "CHANGE SCREEN/Speed",
-                        "integer": 500,
+                        "integer": 2,
                         "InheritedType": 6
                       },
                       {
@@ -427,6 +425,7 @@
               {
                 "disabled": false,
                 "nid": 1000272,
+                "flags": 1048576,
                 "strtype": "_event/EventHandler",
                 "strval": "RELEASED",
                 "childs": [
@@ -616,7 +615,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "LABEL"
+            "saved_objtypeKey": "LABEL",
+            "tree_closed": true
           }
         ],
         "isPage": true,
@@ -918,7 +918,7 @@
                 "flags": 17,
                 "strtype": "OBJECT/Position",
                 "intarray": [
-                  180,
+                  190,
                   -80
                 ],
                 "InheritedType": 7
@@ -1240,7 +1240,7 @@
                 "flags": 17,
                 "strtype": "OBJECT/Position",
                 "intarray": [
-                  180,
+                  190,
                   -20
                 ],
                 "InheritedType": 7
@@ -1433,8 +1433,8 @@
                 "flags": 17,
                 "strtype": "OBJECT/Position",
                 "intarray": [
-                  104,
-                  0
+                  130,
+                  7
                 ],
                 "InheritedType": 7
               },
@@ -1443,7 +1443,7 @@
                 "flags": 17,
                 "strtype": "OBJECT/Size",
                 "intarray": [
-                  20,
+                  11,
                   216
                 ],
                 "InheritedType": 7
@@ -1757,7 +1757,7 @@
                 "flags": 17,
                 "strtype": "OBJECT/Position",
                 "intarray": [
-                  184,
+                  190,
                   92
                 ],
                 "InheritedType": 7
@@ -1868,7 +1868,6 @@
                   },
                   {
                     "nid": 1000259,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "DELETE SCREEN",
                     "childs": [
@@ -1938,7 +1937,7 @@
                       {
                         "nid": 1000270,
                         "strtype": "CHANGE SCREEN/Speed",
-                        "integer": 500,
+                        "integer": 2,
                         "InheritedType": 6
                       },
                       {

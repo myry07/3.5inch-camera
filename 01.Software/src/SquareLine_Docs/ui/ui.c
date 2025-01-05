@@ -56,7 +56,7 @@ void ui_event_Button2( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_delete( &ui_Screen1);
-      _ui_screen_change( &ui_Screen2, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_Screen2_screen_init);
+      _ui_screen_change( &ui_Screen2, LV_SCR_LOAD_ANIM_FADE_ON, 2, 0, &ui_Screen2_screen_init);
 }
 if ( event_code == LV_EVENT_RELEASED) {
       openCamera( e );
@@ -92,7 +92,7 @@ void ui_event_Button5( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_delete( &ui_Screen2);
-      _ui_screen_change( &ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_Screen1_screen_init);
+      _ui_screen_change( &ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 2, 0, &ui_Screen1_screen_init);
       closeCamera( e );
       turnOffLED( e );
 }

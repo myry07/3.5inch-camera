@@ -32,6 +32,8 @@ Adafruit_NeoPixel strip(1, LED_PIN, NEO_GRB + NEO_KHZ800);
 int led_state = 0;
 int camera_state = 0;
 
+TaskHandle_t led_Handle = NULL;
+
 /*screen resolution*/
 static const uint16_t screenWidth = 480;
 static const uint16_t screenHeight = 320;
@@ -41,9 +43,6 @@ TFT_eSPI tft = TFT_eSPI(); /* TFT entity */
 
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf1[screenWidth * screenHeight / 10];  // 增加缓冲区大小
-
-TaskHandle_t camera_Handle = NULL;  //创建任务句柄
-TaskHandle_t led_Handle = NULL;     //创建任务句柄
 
 void cameraInit() {
   Serial.begin(115200);
@@ -70,7 +69,7 @@ void cameraInit() {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_QVGA;   // 设置为 QQVGA（160x120）
+  config.frame_size = FRAMESIZE_QVGA;    // 设置为 QQVGA（160x120）
   config.pixel_format = PIXFORMAT_JPEG;  // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
@@ -101,7 +100,7 @@ void showingImage() {
   } else {
     Serial.println("Captured JPEG image");
 
-    int offsetX = 0;  //左右偏移 +右 -左
+    int offsetX = 0;   //左右偏移 +右 -左
     int offsetY = 50;  //上下偏移 +下 -上
 
     Serial.print("Image size: ");
@@ -147,7 +146,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data) {
     data->state = LV_INDEV_STATE_PR;
     // 根据屏幕旋转调整触摸坐标
     data->point.x = screenWidth - touchX;  // 水平镜像
-    data->point.y = touchY; // 垂直镜像
+    data->point.y = touchY;                // 垂直镜像
   }
 }
 
@@ -211,6 +210,8 @@ void lvglTask(void *param) {
     //删除灯珠
     if (led_state == 0) {
       if (led_Handle != NULL) {
+        strip.setPixelColor(0, strip.Color(0, 0, 0));
+        strip.show();
         vTaskDelete(led_Handle);
         led_Handle = NULL;
       }
@@ -220,19 +221,13 @@ void lvglTask(void *param) {
 
 void wsTask(void *param) {
   while (1) {
-    strip.setPixelColor(0, strip.Color(255, 0, 0));
-    strip.show();
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-
-    strip.setPixelColor(0, strip.Color(0, 255, 0));
-    strip.show();
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-
-    strip.setPixelColor(0, strip.Color(0, 0, 255));
+    int num = lv_slider_get_value(ui_Slider1);
+    strip.setPixelColor(0, strip.Color(num, num, num));
     strip.show();
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
+
 
 void displayInit() {
   tft.begin();

@@ -13,7 +13,7 @@ lv_obj_clear_flag( ui_Screen2, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 ui_Button3 = lv_btn_create(ui_Screen2);
 lv_obj_set_width( ui_Button3, 60);
 lv_obj_set_height( ui_Button3, 30);
-lv_obj_set_x( ui_Button3, 180 );
+lv_obj_set_x( ui_Button3, 190 );
 lv_obj_set_y( ui_Button3, -80 );
 lv_obj_set_align( ui_Button3, LV_ALIGN_CENTER );
 lv_obj_add_flag( ui_Button3, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
@@ -32,7 +32,7 @@ lv_label_set_text(ui_Label2,"On");
 ui_Button4 = lv_btn_create(ui_Screen2);
 lv_obj_set_width( ui_Button4, 60);
 lv_obj_set_height( ui_Button4, 30);
-lv_obj_set_x( ui_Button4, 180 );
+lv_obj_set_x( ui_Button4, 190 );
 lv_obj_set_y( ui_Button4, -20 );
 lv_obj_set_align( ui_Button4, LV_ALIGN_CENTER );
 lv_obj_add_flag( ui_Button4, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
@@ -52,17 +52,17 @@ ui_Slider1 = lv_slider_create(ui_Screen2);
 lv_slider_set_range(ui_Slider1, 0,255);
 lv_slider_set_value( ui_Slider1, 0, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_Slider1)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_Slider1, 0, LV_ANIM_OFF);
-lv_obj_set_width( ui_Slider1, 20);
+lv_obj_set_width( ui_Slider1, 11);
 lv_obj_set_height( ui_Slider1, 216);
-lv_obj_set_x( ui_Slider1, 104 );
-lv_obj_set_y( ui_Slider1, 0 );
+lv_obj_set_x( ui_Slider1, 130 );
+lv_obj_set_y( ui_Slider1, 7 );
 lv_obj_set_align( ui_Slider1, LV_ALIGN_CENTER );
 
 
 ui_Button5 = lv_btn_create(ui_Screen2);
 lv_obj_set_width( ui_Button5, 80);
 lv_obj_set_height( ui_Button5, 40);
-lv_obj_set_x( ui_Button5, 184 );
+lv_obj_set_x( ui_Button5, 190 );
 lv_obj_set_y( ui_Button5, 92 );
 lv_obj_set_align( ui_Button5, LV_ALIGN_CENTER );
 lv_obj_add_flag( ui_Button5, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
