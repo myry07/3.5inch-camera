@@ -3,27 +3,32 @@
 #include <TFT_eSPI.h>
 #include <TJpg_Decoder.h>
 
-// GPIO 引脚定义
-#define PWDN_GPIO_NUM 32
+#define PWDN_GPIO_NUM -1
 #define RESET_GPIO_NUM -1
-#define XCLK_GPIO_NUM 0
-#define SIOD_GPIO_NUM 26
-#define SIOC_GPIO_NUM 27
-#define Y9_GPIO_NUM 35
-#define Y8_GPIO_NUM 34
-#define Y7_GPIO_NUM 39
-#define Y6_GPIO_NUM 36
-#define Y5_GPIO_NUM 21
-#define Y4_GPIO_NUM 19
-#define Y3_GPIO_NUM 18
-#define Y2_GPIO_NUM 5
-#define VSYNC_GPIO_NUM 25
-#define HREF_GPIO_NUM 23
-#define PCLK_GPIO_NUM 22
+#define XCLK_GPIO_NUM 15
+#define SIOD_GPIO_NUM 4
+#define SIOC_GPIO_NUM 5
+
+#define Y2_GPIO_NUM 11
+#define Y3_GPIO_NUM 9
+#define Y4_GPIO_NUM 8
+#define Y5_GPIO_NUM 10
+#define Y6_GPIO_NUM 12
+#define Y7_GPIO_NUM 18
+#define Y8_GPIO_NUM 17
+#define Y9_GPIO_NUM 16
+
+#define VSYNC_GPIO_NUM 6
+#define HREF_GPIO_NUM 7
+#define PCLK_GPIO_NUM 13
 
 TFT_eSPI tft = TFT_eSPI();
 
 void cameraInit() {
+  Serial.begin(115200);
+  Serial.setDebugOutput(true);
+  Serial.println();
+
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
@@ -39,23 +44,28 @@ void cameraInit() {
   config.pin_pclk = PCLK_GPIO_NUM;
   config.pin_vsync = VSYNC_GPIO_NUM;
   config.pin_href = HREF_GPIO_NUM;
-  config.pin_sccb_sda = SIOD_GPIO_NUM;
-  config.pin_sccb_scl = SIOC_GPIO_NUM;
+  config.pin_sscb_sda = SIOD_GPIO_NUM;
+  config.pin_sscb_scl = SIOC_GPIO_NUM;
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
-  config.xclk_freq_hz = 10000000;  // 10 MHz
-  config.pixel_format = PIXFORMAT_JPEG;
+  config.xclk_freq_hz = 20000000;
   config.frame_size = FRAMESIZE_QVGA;
-  config.jpeg_quality = 12;
+  config.pixel_format = PIXFORMAT_JPEG;  // for streaming
+  config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
+  config.jpeg_quality = 12;
   config.fb_count = 2;
 
+  // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x\n", err);  //初始化失败
-    while (1)
-      ;  // 停止程序
+    Serial.printf("Camera init failed with error 0x%x", err);  //初始化失败
+    return;
+  } else {
+    Serial.println("Camera init");
   }
+
+  delay(3000);
 }
 
 void showingImage() {
@@ -70,8 +80,8 @@ void showingImage() {
   } else {
     Serial.println("Captured JPEG image");
 
-    int offsetX = 0;  //左右偏移 +右 -左
-    int offsetY = 80;  //上下偏移 +下 -上
+    int offsetX = 0;   //左右偏移 +右 -左
+    int offsetY = 40;  //上下偏移 +下 -上
 
     if (TJpgDec.drawJpg(offsetX, offsetY, (const uint8_t*)fb->buf, fb->len)) {
       Serial.println("JPEG drawn successfully.");
@@ -89,9 +99,10 @@ bool tft_output(int16_t x, int16_t y, uint16_t w, uint16_t h, uint16_t* bitmap) 
   return 1;
 }
 
+
 void displayInit() {
   tft.begin();
-  tft.setRotation(1);
+  tft.setRotation(3);
   tft.fillScreen(TFT_BLACK);
 
   TJpgDec.setJpgScale(1);
@@ -100,11 +111,13 @@ void displayInit() {
 }
 
 void setup() {
+  // put your setup code here, to run once:
   Serial.begin(115200);
-  displayInit();
   cameraInit();
+  displayInit();
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
   showingImage();
 }
