@@ -4,11 +4,12 @@
 // Project name: flash
 
 #include "ui.h"
+extern int temp;
 
 void flash(lv_event_t* e) {
-  if (digitalRead(4) == 0) {
-    digitalWrite(4, 1);
-  } else {
-    digitalWrite(4, 0);
+  if (temp == 1) {
+    temp = 0;
+  } else if (temp == 0) {
+    temp = 1;
   }
 }
