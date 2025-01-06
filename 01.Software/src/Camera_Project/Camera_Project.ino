@@ -69,7 +69,7 @@ void cameraInit() {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_QVGA;    // 设置为 QQVGA（160x120）
+  config.frame_size = FRAMESIZE_QQVGA;    // 设置为 QQVGA（160x120）
   config.pixel_format = PIXFORMAT_JPEG;  // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
@@ -101,7 +101,7 @@ void showingImage() {
     Serial.println("Captured JPEG image");
 
     int offsetX = 0;   //左右偏移 +右 -左
-    int offsetY = 50;  //上下偏移 +下 -上
+    int offsetY = 100;  //上下偏移 +下 -上
 
     Serial.print("Image size: ");
     Serial.print(fb->width);
@@ -203,7 +203,7 @@ void lvglTask(void *param) {
     //创建灯珠
     if (led_state == 1) {
       if (led_Handle == NULL) {
-        xTaskCreate(wsTask, "ws", 1024, NULL, 0, &led_Handle);
+        xTaskCreate(wsTask, "ws", 1024*3, NULL, 0, &led_Handle);
       }
     }
 
@@ -221,8 +221,10 @@ void lvglTask(void *param) {
 
 void wsTask(void *param) {
   while (1) {
-    int num = lv_slider_get_value(ui_Slider1);
-    strip.setPixelColor(0, strip.Color(num, num, num));
+    int blue = lv_slider_get_value(ui_Slider1);
+    int green = lv_slider_get_value(ui_Slider4);
+    int red = lv_slider_get_value(ui_Slider3);
+    strip.setPixelColor(0, strip.Color(red, green, blue));
     strip.show();
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }

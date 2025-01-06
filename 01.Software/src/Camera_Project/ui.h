@@ -38,6 +38,10 @@ extern lv_obj_t *ui_Slider1;
 void ui_event_Button5( lv_event_t * e);
 extern lv_obj_t *ui_Button5;
 extern lv_obj_t *ui_Label5;
+void ui_event_Slider3( lv_event_t * e);
+extern lv_obj_t *ui_Slider3;
+void ui_event_Slider4( lv_event_t * e);
+extern lv_obj_t *ui_Slider4;
 // CUSTOM VARIABLES
 
 // EVENTS

@@ -13,8 +13,10 @@ extern "C" {
 void openCamera(lv_event_t * e);
 void tunrOnLED(lv_event_t * e);
 void turnOffLED(lv_event_t * e);
-void change_clolor(lv_event_t * e);
+void change_blue(lv_event_t * e);
 void closeCamera(lv_event_t * e);
+void change_red(lv_event_t * e);
+void change_green(lv_event_t * e);
 
 #ifdef __cplusplus
 } /*extern "C"*/

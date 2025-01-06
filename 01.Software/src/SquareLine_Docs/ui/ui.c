@@ -33,6 +33,10 @@ lv_obj_t *ui_Slider1;
 void ui_event_Button5( lv_event_t * e);
 lv_obj_t *ui_Button5;
 lv_obj_t *ui_Label5;
+void ui_event_Slider3( lv_event_t * e);
+lv_obj_t *ui_Slider3;
+void ui_event_Slider4( lv_event_t * e);
+lv_obj_t *ui_Slider4;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -83,7 +87,7 @@ void ui_event_Slider1( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
-      change_clolor( e );
+      change_blue( e );
 }
 }
 
@@ -95,6 +99,22 @@ if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 2, 0, &ui_Screen1_screen_init);
       closeCamera( e );
       turnOffLED( e );
+}
+}
+
+void ui_event_Slider3( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED) {
+      change_red( e );
+}
+}
+
+void ui_event_Slider4( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED) {
+      change_green( e );
 }
 }
 

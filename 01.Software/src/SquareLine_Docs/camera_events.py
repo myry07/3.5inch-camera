@@ -18,3 +18,15 @@ def openCamera(event_struct):
 def closeCamera(event_struct):
     return
 
+
+def change_blue(event_struct):
+    return
+
+
+def change_red(event_struct):
+    return
+
+
+def change_green(event_struct):
+    return
+

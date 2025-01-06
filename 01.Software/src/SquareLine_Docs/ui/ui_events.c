@@ -20,12 +20,22 @@ void turnOffLED(lv_event_t * e)
 	// Your code here
 }
 
-void change_clolor(lv_event_t * e)
+void change_blue(lv_event_t * e)
 {
 	// Your code here
 }
 
 void closeCamera(lv_event_t * e)
+{
+	// Your code here
+}
+
+void change_red(lv_event_t * e)
+{
+	// Your code here
+}
+
+void change_green(lv_event_t * e)
 {
 	// Your code here
 }
