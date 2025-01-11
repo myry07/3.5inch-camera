@@ -4,7 +4,8 @@
 // Project name: camera
 
 #include "ui.h"
-extern camera_state, led_state;
+
+extern camera_state, led_state, stop;
 
 void openCamera(lv_event_t* e) {
   camera_state = 1;
@@ -23,11 +24,6 @@ void change_blue(lv_event_t* e) {
   blue_value = lv_slider_get_value(ui_Slider1);  //ui_Slider1 ui.h文件
 }
 
-void closeCamera(lv_event_t* e) {
-  camera_state = 0;
-  led_state = 0;
-}
-
 void change_red(lv_event_t* e) {
   int red_value = 0;
   red_value = lv_slider_get_value(ui_Slider3);  //ui_Slider4 ui.h文件
@@ -36,4 +32,16 @@ void change_red(lv_event_t* e) {
 void change_green(lv_event_t* e) {
   int green_value = 0;
   green_value = lv_slider_get_value(ui_Slider4);  //ui_Slider3 ui.h文件
+}
+
+void closeCamera(lv_event_t* e) {
+  camera_state = 0;
+}
+
+void take_picture(lv_event_t* e) {
+  // if(stop == 0) {
+  //   stop = 1;
+  // } else {
+  //   stop = 0;
+  // }
 }

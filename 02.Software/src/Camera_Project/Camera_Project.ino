@@ -69,7 +69,7 @@ void cameraInit() {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_QQVGA;    // 设置为 QQVGA（160x120）
+  config.frame_size = FRAMESIZE_QVGA;    // 设置为 QQVGA（160x120）
   config.pixel_format = PIXFORMAT_JPEG;  // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
@@ -101,7 +101,7 @@ void showingImage() {
     Serial.println("Captured JPEG image");
 
     int offsetX = 0;   //左右偏移 +右 -左
-    int offsetY = 100;  //上下偏移 +下 -上
+    int offsetY = 40;  //上下偏移 +下 -上
 
     Serial.print("Image size: ");
     Serial.print(fb->width);
@@ -212,6 +212,11 @@ void lvglTask(void *param) {
       if (led_Handle != NULL) {
         strip.setPixelColor(0, strip.Color(0, 0, 0));
         strip.show();
+
+        lv_slider_set_value(ui_Slider1, 0, LV_ANIM_ON);
+        lv_slider_set_value(ui_Slider3, 0, LV_ANIM_ON);
+        lv_slider_set_value(ui_Slider4, 0, LV_ANIM_ON);
+
         vTaskDelete(led_Handle);
         led_Handle = NULL;
       }

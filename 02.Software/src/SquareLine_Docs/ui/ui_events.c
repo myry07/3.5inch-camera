@@ -25,17 +25,22 @@ void change_blue(lv_event_t * e)
 	// Your code here
 }
 
-void closeCamera(lv_event_t * e)
-{
-	// Your code here
-}
-
 void change_red(lv_event_t * e)
 {
 	// Your code here
 }
 
 void change_green(lv_event_t * e)
+{
+	// Your code here
+}
+
+void closeCamera(lv_event_t * e)
+{
+	// Your code here
+}
+
+void take_picture(lv_event_t * e)
 {
 	// Your code here
 }

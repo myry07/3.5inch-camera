@@ -44,8 +44,8 @@ lv_obj_clear_flag( ui_Image3, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 ui_Label1 = lv_label_create(ui_Screen1);
 lv_obj_set_width( ui_Label1, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_Label1, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_Label1, -79 );
-lv_obj_set_y( ui_Label1, -2 );
+lv_obj_set_x( ui_Label1, -69 );
+lv_obj_set_y( ui_Label1, -4 );
 lv_obj_set_align( ui_Label1, LV_ALIGN_CENTER );
 lv_label_set_text(ui_Label1,"MYRY Camera");
 

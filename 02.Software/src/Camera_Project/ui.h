@@ -44,6 +44,14 @@ void ui_event_Slider4( lv_event_t * e);
 extern lv_obj_t *ui_Slider4;
 // CUSTOM VARIABLES
 
+// SCREEN: ui_Screen3
+void ui_Screen3_screen_init(void);
+void ui_event_Screen3( lv_event_t * e);
+extern lv_obj_t *ui_Screen3;
+void ui_event_Button6( lv_event_t * e);
+extern lv_obj_t *ui_Button6;
+// CUSTOM VARIABLES
+
 // EVENTS
 extern lv_obj_t *ui____initial_actions0;
 
